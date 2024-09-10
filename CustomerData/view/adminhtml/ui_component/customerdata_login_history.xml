@@ -1,0 +1,49 @@
+<?xml version="1.0"?>
+<listing xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Ui:etc/ui_configuration.xsd">
+    <argument name="data" xsi:type="array">
+        <item name="js_config" xsi:type="array">
+            <item name="provider" xsi:type="string">customer_login_history.customer_login_history_data_source</item>
+            <item name="deps" xsi:type="string">customer_login_history.customer_login_history_data_source</item>
+        </item>
+        <item name="spinner" xsi:type="string">customer_login_history_columns</item>
+    </argument>
+    <dataSource name="customer_login_history_data_source">
+        <argument name="dataProvider" xsi:type="configurableObject">
+            <argument name="class" xsi:type="string">Kitchen\CustomerData\Model\Customer\LoginHistoryDataProvider</argument>
+            <argument name="name" xsi:type="string">customer_login_history_data_source</argument>
+            <argument name="primaryFieldName" xsi:type="string">entity_id</argument>
+            <argument name="requestFieldName" xsi:type="string">entity_id</argument>
+            <argument name="customerId" xsi:type="string">$._coreRegistry.registry('current_customer_id')</argument>
+        </argument>
+    </dataSource>
+    <columns name="customer_login_history_columns">
+        <selectionsColumn name="ids">
+            <settings>
+                <indexField>entity_id</indexField>
+            </settings>
+        </selectionsColumn>
+        <column name="entity_id">
+            <settings>
+                <filter>textRange</filter>
+                <label translate="true">ID</label>
+                <sorting>asc</sorting>
+            </settings>
+        </column>
+        <column name="customer_email">
+            <settings>
+                <filter>text</filter>
+                <label translate="true">Customer Email</label>
+            </settings>
+        </column>
+        <column name="login_date">
+            <settings>
+                <filter>dateRange</filter>
+                <dataType>date</dataType>
+                <label translate="true">Login Date</label>
+            </settings>
+        </column>
+    </columns>
+    <listingToolbar name="listing_top">
+        <paging name="listing_paging"/>
+    </listingToolbar>
+</listing>

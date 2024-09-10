@@ -1,0 +1,8 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+    <menu>
+        <add id="Kitchen_CustomerData::data" title="Customer Data" module="Kitchen_CustomerData" sortOrder="51" resource="Kitchen_CustomerData::data"/>
+        <add id="Kitchen_CustomerData::customer_manage" title="Manage Customer" module="Kitchen_CustomerData" sortOrder="10" action="customerdata/index" resource="Kitchen_CustomerData::post" parent="Kitchen_CustomerData::data"/>
+        
+    </menu>
+</config>
